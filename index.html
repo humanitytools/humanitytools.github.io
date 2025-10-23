@@ -25,16 +25,17 @@
             top: 0;
             z-index: 1000;
             background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px;
-            max-width: 1200px;
+            padding: 25px 40px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -57,11 +58,32 @@
             color: #fff;
             text-decoration: none;
             font-size: 16px;
-            transition: opacity 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 20px;
         }
 
         .nav-links a:hover {
-            opacity: 0.7;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 60%;
         }
 
         /* Hero Section */
@@ -86,21 +108,21 @@
             font-weight: 700;
             margin-bottom: 30px;
             line-height: 1.2;
-            animation: fadeInUp 1s ease;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero .subtitle {
             font-size: 32px;
             color: #aaa;
             margin-bottom: 50px;
-            animation: fadeInUp 1s ease 0.2s backwards;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
         }
 
         .hero .description {
             font-size: 20px;
             color: #888;
             line-height: 1.8;
-            animation: fadeInUp 1s ease 0.4s backwards;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
         }
 
         .pre-value {
@@ -112,7 +134,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: fadeInUp 1s ease 0.6s backwards, glitter 2s linear infinite;
+            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards, glitter 2s linear infinite;
             position: relative;
         }
 
@@ -164,15 +186,35 @@
             padding: 50px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s;
+            border-radius: 32px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 32px;
         }
 
         .post:hover {
             background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.01);
             border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .post:hover::before {
+            opacity: 1;
         }
 
         .post-title {
@@ -191,7 +233,7 @@
 
         .post.active .post-content {
             display: block;
-            animation: fadeInUp 0.5s ease;
+            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .post-toggle {
@@ -214,7 +256,7 @@
             position: absolute;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-            animation: float 20s infinite;
+            animation: float 20s infinite ease-in-out;
         }
 
         .circle:nth-child(1) {
@@ -242,15 +284,29 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            25% { transform: translate(50px, -50px); }
-            50% { transform: translate(-30px, 30px); }
-            75% { transform: translate(30px, 50px); }
+            0%, 100% { 
+                transform: translate(0, 0);
+            }
+            25% { 
+                transform: translate(50px, -50px);
+            }
+            50% { 
+                transform: translate(-30px, 30px);
+            }
+            75% { 
+                transform: translate(30px, 50px);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         /* Footer */
@@ -269,6 +325,11 @@
             .hero .description { font-size: 18px; }
             .pre-value { font-size: 40px; }
             .logo { font-size: 24px; }
+            nav { padding: 20px; }
+            .nav-links { gap: 20px; }
+            .post { padding: 30px; }
+            .post-title { font-size: 24px; }
+            .section-title { font-size: 36px; }
         }
     </style>
 </head>
@@ -307,7 +368,7 @@
                     <h3 class="post-title">Humanity Coin 소개</h3>
                     <p class="post-toggle">클릭하여 내용 보기</p>
                     <p class="post-content">
-                        Humanity Coin은 미래 AGI가 대부분의 일자리를 대체했을때 인간에게 기본소득을 주기 위해 만들어졌습니다.<br>
+                        내용 : Humanity Coin은 미래 AGI가 대부분의 일자리를 대체했을때 인간에게 기본소득을 주기 위해 만들어졌습니다.<br>
                         사용자는 간단한 인간 인증을 수행한 후 기본소득을 신청할수 있습니다.<br>
                         기본소득을 신청하면 10년간 기본소득을 수령할수 있으며,<br>
                         기본소득 첫 지급은 2030년에 시작됩니다.
@@ -318,7 +379,7 @@
                     <h3 class="post-title">Humanity Tools 계획</h3>
                     <p class="post-toggle">클릭하여 내용 보기</p>
                     <p class="post-content">
-                        2026년: 기본소득 베타 시작 및 인간 인증자 모집 (~ 2029) 및<br>
+                        내용 : 2026년: 기본소득 베타 시작 및 인간 인증자 모집 (~ 2029) 및<br>
                         Seed~ Series B 투자유치<br><br>
                         2030~2040 1차 기본소득 지급<br>
                         2040~2050 2차 기본소득 지급
@@ -339,7 +400,6 @@
     </footer>
 
     <script>
-        // Toggle post content
         function togglePost(post) {
             const toggle = post.querySelector('.post-toggle');
             post.classList.toggle('active');
@@ -350,7 +410,6 @@
             }
         }
 
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -361,7 +420,6 @@
             });
         });
 
-        // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
