@@ -103,6 +103,38 @@
             animation: fadeInUp 1s ease 0.4s backwards;
         }
 
+        .pre-value {
+            font-size: 80px;
+            font-weight: 700;
+            margin-top: 60px;
+            background: linear-gradient(135deg, #fff 0%, #ffd700 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.6s backwards, glitter 2s linear infinite;
+            position: relative;
+        }
+
+        @keyframes glitter {
+            0%, 100% { 
+                background-position: 0% center;
+                filter: brightness(1);
+            }
+            25% {
+                background-position: 50% center;
+                filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+            }
+            50% { 
+                background-position: 100% center;
+                filter: brightness(1);
+            }
+            75% {
+                background-position: 50% center;
+                filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+            }
+        }
+
         /* Feed Section */
         .feed {
             padding: 120px 20px;
@@ -235,6 +267,7 @@
             .hero h1 { font-size: 48px; }
             .hero .subtitle { font-size: 22px; }
             .hero .description { font-size: 18px; }
+            .pre-value { font-size: 40px; }
             .logo { font-size: 24px; }
         }
     </style>
@@ -262,6 +295,7 @@
             <p class="description">
                 인공지능이 변화시킬 미래를 위해, 모든 인류가 존엄하게 살아갈 수 있는 기본소득 시스템을 구축합니다.
             </p>
+            <div class="pre-value">현재 Pre-Value: 15억원</div>
         </div>
     </section>
 
@@ -291,7 +325,6 @@
                     </p>
                 </article>
 
-                <!-- 추가 예시 -->
                 <article class="post" onclick="togglePost(this)">
                     <h3 class="post-title">Contect</h3>
                     <p class="post-toggle">클릭하여 내용 보기</p>
