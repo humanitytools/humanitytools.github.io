@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Humanity Tools - AGI 시대를 위한 기본소득 플랫폼</title>
+    <title>Humanity Project - 시드 투자 제안서</title>
     <style>
         * {
             margin: 0;
@@ -12,422 +12,597 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            padding: 8px 16px;
-            border-radius: 20px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover::after {
-            width: 60%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 100px 20px;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: 80px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            line-height: 1.2;
-            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .hero .subtitle {
-            font-size: 32px;
-            color: #aaa;
-            margin-bottom: 50px;
-            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
-        }
-
-        .hero .description {
-            font-size: 20px;
-            color: #888;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #e0e0e0;
             line-height: 1.8;
-            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
-        }
-
-        .pre-value {
-            font-size: 80px;
-            font-weight: 700;
-            margin-top: 60px;
-            background: linear-gradient(135deg, #fff 0%, #ffd700 50%, #fff 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards, glitter 2s linear infinite;
-            position: relative;
-        }
-
-        @keyframes glitter {
-            0%, 100% { 
-                background-position: 0% center;
-                filter: brightness(1);
-            }
-            25% {
-                background-position: 50% center;
-                filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
-            }
-            50% { 
-                background-position: 100% center;
-                filter: brightness(1);
-            }
-            75% {
-                background-position: 50% center;
-                filter: brightness(1.5) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
-            }
-        }
-
-        /* Feed Section */
-        .feed {
-            padding: 120px 20px;
-            background: #000;
-            min-height: 100vh;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
 
-        .section-title {
-            font-size: 48px;
-            font-weight: 700;
+        .hero {
             text-align: center;
-            margin-bottom: 80px;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 1px solid #333;
         }
 
-        .feed-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .post {
-            padding: 50px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .post::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 32px;
-        }
-
-        .post:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-8px) scale(1.01);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .post:hover::before {
-            opacity: 1;
-        }
-
-        .post-title {
-            font-size: 32px;
-            font-weight: 700;
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .hero .tagline {
+            font-size: 1.8em;
             color: #fff;
+            font-weight: 300;
+            margin-top: 30px;
         }
 
-        .post-content {
-            font-size: 18px;
-            color: #aaa;
-            line-height: 1.8;
-            display: none;
+        .section {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .post.active .post-content {
-            display: block;
-            animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        .section:hover {
+            transform: translateY(-5px);
+            border-color: #00f2fe;
         }
 
-        .post-toggle {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        /* Animated Background */
-        .bg-animation {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .circle {
-            position: absolute;
+        .section-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #000;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 50%;
-            right: 10%;
-            animation-delay: 5s;
-        }
-
-        .circle:nth-child(3) {
-            width: 400px;
-            height: 400px;
-            bottom: 10%;
-            left: 50%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translate(0, 0);
-            }
-            25% { 
-                transform: translate(50px, -50px);
-            }
-            50% { 
-                transform: translate(-30px, 30px);
-            }
-            75% { 
-                transform: translate(30px, 50px);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 20px;
             text-align: center;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 20px;
         }
 
-        /* Responsive */
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #00f2fe;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #c0c0c0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #00f2fe20 0%, #4facfe20 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #00f2fe;
+            margin: 30px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: #2a2a2a;
+            border-color: #00f2fe;
+            transform: translateY(-5px);
+        }
+
+        .card h4 {
+            color: #00f2fe;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #aaa;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: #222;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #000;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            color: #c0c0c0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #2a2a2a;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1em;
+            color: #c0c0c0;
+        }
+
+        li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #00f2fe;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: #222;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 200px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: linear-gradient(135deg, #00f2fe20 0%, #4facfe20 100%);
+            border-color: #00f2fe;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 1em;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .comparison-item {
+            background: #222;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        .comparison-item.winner {
+            border: 2px solid #00f2fe;
+            background: linear-gradient(135deg, #00f2fe10 0%, #4facfe10 100%);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            margin-top: 60px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .contact {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #00f2fe;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 48px; }
-            .hero .subtitle { font-size: 22px; }
-            .hero .description { font-size: 18px; }
-            .pre-value { font-size: 40px; }
-            .logo { font-size: 24px; }
-            nav { padding: 20px; }
-            .nav-links { gap: 20px; }
-            .post { padding: 30px; }
-            .post-title { font-size: 24px; }
-            .section-title { font-size: 36px; }
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Humanity Tools</div>
-            <ul class="nav-links">
-                <li><a href="#home">홈</a></li>
-                <li><a href="#feed">피드</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="bg-animation">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+    <div class="container">
+        <div class="hero">
+            <h1>Humanity Project</h1>
+            <div class="subtitle">시드 투자 제안서</div>
+            <div class="tagline">AGI 시대, 인간을 위한 경제 생태계</div>
         </div>
-        <div class="hero-content">
-            <h1>Humanity Tools</h1>
-            <p class="subtitle">AGI 시대를 위한 기본소득 플랫폼</p>
-            <p class="description">
-                인공지능이 변화시킬 미래를 위해, 모든 인류가 존엄하게 살아갈 수 있는 기본소득 시스템을 구축합니다.
+
+        <div class="section">
+            <span class="section-number">01</span>
+            <h2>해결하고자 하는 문제</h2>
+            
+            <h3>AI로 인한 디지털 신원 검증의 붕괴</h3>
+            <p>
+                인공지능 기술이 급속도로 발전하면서 인간의 노동을 자동화하고 있습니다. 이러한 변화 속에서 
+                디지털 환경에서 실제 인간을 검증하는 것이 점점 더 어려워지고 있습니다. 현재 널리 사용되는 
+                CAPTCHA나 OTP 같은 인증 시스템은 이미 고도화된 AI 시스템에 의해 쉽게 우회되고 있으며, 
+                이는 온라인 보안과 신뢰성에 심각한 위협이 되고 있습니다.
             </p>
-            <div class="pre-value">현재 Pre-Value: 15억원</div>
-        </div>
-    </section>
-
-    <section id="feed" class="feed">
-        <div class="container">
-            <h2 class="section-title">피드</h2>
-            <div class="feed-posts">
-                <article class="post" onclick="togglePost(this)">
-                    <h3 class="post-title">Humanity Coin 소개</h3>
-                    <p class="post-toggle">클릭하여 내용 보기</p>
-                    <p class="post-content">
-                        내용 : Humanity Coin은 미래 AGI가 대부분의 일자리를 대체했을때 인간에게 기본소득을 주기 위해 만들어졌습니다.<br>
-                        사용자는 간단한 인간 인증을 수행한 후 기본소득을 신청할수 있습니다.<br>
-                        기본소득을 신청하면 10년간 기본소득을 수령할수 있으며,<br>
-                        기본소득 첫 지급은 2030년에 시작됩니다.
-                    </p>
-                </article>
-
-                <article class="post" onclick="togglePost(this)">
-                    <h3 class="post-title">Humanity Tools 계획</h3>
-                    <p class="post-toggle">클릭하여 내용 보기</p>
-                    <p class="post-content">
-                        내용 : 2026년: 기본소득 베타 시작 및 인간 인증자 모집 (~ 2029) 및<br>
-                        Seed~ Series B 투자유치<br><br>
-                        2030~2040 1차 기본소득 지급<br>
-                        2040~2050 2차 기본소득 지급
-                    </p>
-                </article>
-
-                <article class="post" onclick="togglePost(this)">
-                    <h3 class="post-title">Contect</h3>
-                    <p class="post-toggle">클릭하여 내용 보기</p>
-                    <p class="post-content">Email: <br> humanity.tools.korea@gmail.com</p>
-                </article>
+            
+            <h3>AGI 시대의 경제적 불평등</h3>
+            <p>
+                범용 인공지능(AGI)이 대부분의 일자리를 대체하게 되면서, 전통적인 노동 시장 기반의 소득 분배 
+                시스템은 더 이상 작동하지 않을 것입니다. 이러한 상황에서 사회적 안정성을 유지하기 위해서는 
+                공정하고 탈중앙화된 기본소득 분배 시스템이 필수적입니다. 현재의 중앙화된 복지 시스템으로는 
+                글로벌 규모의 경제적 재편에 대응할 수 없습니다.
+            </p>
+            
+            <div class="highlight">
+                <strong>핵심 문제:</strong> 디지털 세계에서 인간임을 증명하는 것이 점점 어려워지고 있으며, 
+                AI가 모든 일자리를 대체하는 미래에는 새로운 형태의 경제 시스템이 필요합니다.
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 Humanity Tools. Building the future of universal basic income.</p>
-    </footer>
+        <div class="section">
+            <span class="section-number">02</span>
+            <h2>시장 기회</h2>
+            
+            <p>
+                Humanity는 세 가지 급성장하는 시장의 교차점에 위치하고 있습니다. 디지털 신원 인증, 
+                블록체인 결제, 그리고 기본소득/보상 애플리케이션 시장은 모두 두 자릿수 이상의 
+                연평균 성장률을 보이고 있으며, 2025년 기준 총 시장 규모는 1,650억 달러에 달합니다.
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>시장 분야</th>
+                        <th>시장 규모 (2025)</th>
+                        <th>연평균 성장률</th>
+                        <th>출처</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>디지털 신원 인증</td>
+                        <td>$65B (약 87조원)</td>
+                        <td>17%</td>
+                        <td>Statista</td>
+                    </tr>
+                    <tr>
+                        <td>블록체인 결제</td>
+                        <td>$85B (약 114조원)</td>
+                        <td>20%</td>
+                        <td>Deloitte</td>
+                    </tr>
+                    <tr>
+                        <td>보상/UBI 앱</td>
+                        <td>$15B (약 20조원)</td>
+                        <td>25%</td>
+                        <td>CoinTelegraph</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">$165B</div>
+                    <div class="stat-label">총 시장 규모</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">20%</div>
+                    <div class="stat-label">평균 성장률</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50억+</div>
+                    <div class="stat-label">잠재 사용자</div>
+                </div>
+            </div>
+            
+            <p>
+                특히 Web3 금융 생태계와 디지털 신원 인증의 교차점은 아직 충분히 개척되지 않은 블루오션입니다. 
+                기존의 중앙화된 신원 인증 시스템은 프라이버시 침해와 데이터 독점의 문제를 안고 있으며, 
+                블록체인 기반 솔루션에 대한 수요가 급증하고 있습니다.
+            </p>
+        </div>
 
-    <script>
-        function togglePost(post) {
-            const toggle = post.querySelector('.post-toggle');
-            post.classList.toggle('active');
-            if (post.classList.contains('active')) {
-                toggle.textContent = '클릭하여 내용 숨기기';
-            } else {
-                toggle.textContent = '클릭하여 내용 보기';
-            }
-        }
+        <div class="section">
+            <span class="section-number">03</span>
+            <h2>솔루션 개요</h2>
+            
+            <p>
+                Humanity는 인간 신원 검증과 탈중앙화 기본소득 분배를 통합한 Web3 플랫폼입니다. 
+                우리는 단순히 기술적 솔루션을 제공하는 것이 아니라, AGI 시대를 위한 완전히 새로운 
+                경제 인프라를 구축하고 있습니다.
+            </p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>🆔 Humanity ID</h4>
+                    <p>
+                        여권 또는 생체인식 기반의 인간 신원 검증 시스템. 한 번의 인증으로 평생 사용 가능하며, 
+                        블록체인 기술을 활용하여 개인 데이터는 사용자만이 완전히 통제할 수 있습니다. 
+                        AI가 복제할 수 없는 실제 인간임을 증명합니다.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h4>💰 Humanity Coin</h4>
+                    <p>
+                        검증된 인간에게만 분배되는 탈중앙화 기본소득 토큰. 고정 공급량으로 인플레이션을 방지하며, 
+                        생태계 내 거래와 스테이킹을 통해 가치를 유지합니다. 모든 인간이 공평하게 경제 활동에 
+                        참여할 수 있는 기반을 제공합니다.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h4>🏪 Nano App Store</h4>
+                    <p>
+                        개발자들이 금융 DApp을 구축할 수 있는 생태계. 대출, 저축, 결제, 송금 등 다양한 
+                        금융 서비스를 제공하며, 모두 Humanity ID와 Coin을 기반으로 작동합니다. 
+                        개방형 플랫폼으로 누구나 혁신적인 서비스를 출시할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>핵심 차별점:</strong> Humanity는 신원 인증과 금융 시스템을 하나의 생태계로 
+                통합하여, 사용자는 한 번의 인증으로 모든 금융 서비스에 안전하게 접근할 수 있습니다.
+            </div>
+        </div>
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        <div class="section">
+            <span class="section-number">04</span>
+            <h2>제품 구조</h2>
+            
+            <p>
+                Humanity App은 신원, 소득, 그리고 상호작용을 하나의 안전한 생태계로 통합합니다. 
+                사용자 경험을 최우선으로 설계된 우리 플랫폼은 복잡한 블록체인 기술을 간단하고 
+                직관적인 인터페이스로 제공합니다.
+            </p>
+            
+            <h3>사용자 여정</h3>
+            <ul>
+                <li><strong>1단계: 신원 인증</strong> - 여권 스캔 또는 생체인식을 통한 일회성 인증. 
+                개인정보는 이중 암호화되어 블록체인에 안전하게 저장됩니다.</li>
+                
+                <li><strong>2단계: 기본소득 수령</strong> - 검증된 사용자는 정기적으로 Humanity Coin을 
+                받습니다. 별도의 신청이나 복잡한 절차 없이 자동으로 지급됩니다.</li>
+                
+                <li><strong>3단계: 금융 활동</strong> - 받은 코인으로 Nano App Store의 다양한 서비스를 
+                이용할 수 있습니다. 대출, 저축, 결제, 투자 등 모든 금융 활동이 가능합니다.</li>
+                
+                <li><strong>4단계: 생태계 참여</strong> - 거래 수수료, 스테이킹 보상, 추천 보너스 등을 
+                통해 추가 소득을 얻을 수 있으며, 커뮤니티 거버넌스에도 참여할 수 있습니다.</li>
+            </ul>
+            
+            <h3>기술 아키텍처</h3>
+            <p>
+                우리 플랫폼은 확장 가능하고 안전한 블록체인 인프라 위에 구축됩니다. Layer 2 솔루션을 
+                활용하여 빠른 거래 속도와 낮은 수수료를 실현하며, 스마트 컨트랙트를 통해 모든 거래가 
+                투명하고 검증 가능하게 이루어집니다. 또한 이중 암호화 시스템으로 개인정보를 보호하면서도 
+                필요한 검증은 가능하도록 설계되었습니다.
+            </p>
+        </div>
 
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.98)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-            }
-        });
-    </script>
-</body>
-</html>
+        <div class="section">
+            <span class="section-number">05</span>
+            <h2>비즈니스 모델</h2>
+            
+            <p>
+                Humanity는 지속 가능하고 투명한 수익 구조를 통해 장기적인 성장을 추구합니다. 
+                우리의 비즈니스 모델은 세 가지 핵심 수익원으로 구성되어 있으며, 모두 사용자에게 
+                실질적인 가치를 제공하면서 수익을 창출합니다.
+            </p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>거래 및 출금 수수료</h4>
+                    <p><strong>0.05~0.5%</strong></p>
+                    <p>
+                        플랫폼 내 모든 거래와 법정화폐로의 출금에 소액의 수수료를 부과합니다. 
+                        거래량이 증가할수록 자연스럽게 수익이 확대되는 구조입니다. 업계 최저 수준의 
+                        수수료율로 사용자 부담을 최소화합니다.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h4>대출 및 스테이킹 마진</h4>
+                    <p><strong>3% 대출 vs 5% 이자</strong></p>
+                    <p>
+                        사용자는 3%의 낮은 이자로 대출을 받을 수 있고, 예치금에 대해서는 5%의 이자를 
+                        받습니다. 이 마진이 플랫폼의 안정적인 수익원이 되며, 사용자에게는 전통 금융보다 
+                        유리한 조건을 제공합니다.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h4>Nano App Store 수익 분배</h4>
+                    <p><strong>10~20% 수수료</strong></p>
+                    <p>
+                        개발자들이 만든 DApp의 수익에서 일정 비율을 플랫폼 수수료로 받습니다. 
+                        이는 앱스토어 모델과 유사하며, 생태계가 성장할수록 더 많은 수익이 발생합니다. 
+                        개발자에게는 검증된 사용자 기반을 제공하여 상생합니다.
+                    </p>
+                </div>
+            </div>
+            
+            <h3>수익성 시나리오</h3>
+            <p>
+                100만 명의 활성 사용자 기준으로, 월평균 3회의 거래(평균 $50)가 발생한다고 가정하면 
+                월 거래액은 $150M입니다. 0.3%의 평균 수수료율을 적용하면 월 $450K, 연간 약 $5.4M의 
+                거래 수수료 수익이 발생합니다. 여기에 대출/스테이킹 마진과 Nano App 수수료를 합치면 
+                사용자 100만 명 시점에서 연간 약 $8~10M의 수익을 기대할 수 있습니다.
+            </p>
+        </div>
+
+        <div class="section">
+            <span class="section-number">06</span>
+            <h2>경쟁 우위</h2>
+            
+            <p>
+                Humanity는 시장 선도 기업인 Worldcoin과 비교했을 때 여러 측면에서 우위를 점하고 있습니다. 
+                우리는 단순한 신원 인증을 넘어 완전한 금융 생태계를 제공하며, 사용자 프라이버시와 
+                실용성을 동시에 보장합니다.
+            </p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>비교 항목</th>
+                        <th>Worldcoin</th>
+                        <th>Humanity App</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>프라이버시 보호</strong></td>
+                        <td>홍채 스캔 데이터 수집으로 프라이버시 우려 제기</td>
+                        <td>규제 준수 이중 암호화, 사용자 완전 통제</td>
+                    </tr>
+                    <tr>
+                        <td><strong>금융 생태계</strong></td>
+                        <td>제한적 기능, 주로 신원 인증에만 집중</td>
+                        <td>대출, 저축, 결제 등 포괄적 금융 서비스</td>
+                    </tr>
+                    <tr>
+                        <td><strong>토큰 분배</strong></td>
+                        <td>고정적이고 낮은 분배율</td>
+                        <td>동적이고 확장 가능한 분배 시스템</td>
+                    </tr>
+                    <tr>
+                        <td><strong>수익 모델</strong></td>
+                        <td>불명확한 수익화 전략</td>
+                        <td>명확한 수수료 기반 수익 구조</td>
+                    </tr>
+                    <tr>
+                        <td><strong>개발자 생태계</strong></td>
+                        <td>폐쇄적</td>
+                        <td>개방형 Nano App Store</td>
+                    </tr>
+                    <tr>
+                        <td><strong>접근성</strong></td>
+                        <td>특수 하드웨어(Orb) 필요</td>
+                        <td>일반 스마트폰으로 이용 가능</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight">
+                <strong>핵심 차별화 요소:</strong> Humanity는 신원 인증 단계에 머무르지 않고, 
+                검증된 인간들이 실제로 경제 활동을 할 수 있는 완전한 금융 플랫폼을 제공합니다. 
+                이는 단순한 기술적 우위를 넘어 실질적인 비즈니스 가치를 창출합니다.
+            </div>
+        </div>
+
+        <div class="section">
+            <span class="section-number">07</span>
+            <h2>시장 진출 전략</h2>
+            
+            <p>
+                Humanity의 시장 진출 전략은 4단계로 구성되어 있으며, 각 단계마다 명확한 목표와 
+                실행 계획이 수립되어 있습니다. 우리는 초기에 얼리어답터와 Web3 커뮤니티를 타겟으로 하여 
+                빠르게 PMF(Product-Market Fit)를 달성하고, 이후 대중 시장으로 확장할 계획입니다.
+            </p>
+            
+            <h3>Phase 1: 바이럴 마케팅 (2026 Q1-Q2)</h3>
+            <ul>
+                <li><strong>SNS 캠페인:</strong> Twitter, Discord, Telegram 등 Web3 커뮤니티가 활발한 
+                플랫폼에서 인플루언서 마케팅과 밈(Meme) 전략을 활용합니다.</li>
+                
+                <li><strong>추천 프로그램:</strong> 초기 사용자에게 추가 토큰 보상을 제공하여 
+                바이럴 확산을 유도합니다. 추천인과 피추천인 모두에게 인센티브를 제공합니다.</li>
+                
+                <li><strong>에어드랍 캠페인:</strong> Web3 커뮤니티와 NFT 홀더들을 대상으로 
+                전략적 에어드랍을 실시하여 초기 사용자 기반을 구축합니다.</li>
+            </ul>
+            
+            <h3>Phase 2: 베타 출시 (2026 Q3-Q4)</h3>
+            <ul>
+                <li><strong>1,000명 검증된 사용자:</strong> 엄격하게 선별된 베타 테스터들에게 
+                먼저 서비스를 제공하여 피드백을 수집하고 제품을 개선합니다.</li>
+                
+                <li><strong>커뮤니티 구축:</strong> 베타 사용자들을 중심으로 강력한 커뮤니티를 
+                형성하고, 이들이 브랜드 앰버서더가 되도록 육성합니다.</li>
+                
+                <li><strong>제품 개선:</strong> 실제 사용 데이터를 기반으로 UX/UI를 최적화하고 
+                핵심 기능을 고도화합니다.</li>
+            </ul>
+            
+            <h3>
